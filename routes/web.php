@@ -11,8 +11,8 @@
 |
 */
 
-Route::get('/', "CharacterController@index");
-Route::get('/character', "CharacterController@generateCharacter");
+Route::get('/', "CharacterController@index")->name('index');
+Route::get('/character', "CharacterController@generateCharacter")->name('character');
 
 Route::get('/env', function () {
     dump(config('app.name'));
