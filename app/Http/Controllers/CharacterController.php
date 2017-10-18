@@ -14,21 +14,25 @@ class CharacterController extends Controller
     public function generateCharacter()
     {
     	# for now, just set up the basic character from $_GET
-    	# TODO: Add logic for name generation (if applicable),
-    	#       form validation, and stat generation
+    	# TODO: Add form validation and stat generation based on race and class
     	$character = [
     		'name' => $_GET['name'],
     		'gender' => $_GET['gender'],
     		'race' => $_GET['race'],
     		'class' => $_GET['class'],
     		'alignment' => $_GET['lawchaos'].' '.$_GET['goodevil'],
-    		'strength' => '7',
-    		'dexterity' => '10',
-    		'intelligence' => '5',
-    		'constitution' => '8',
-    		'charisma' => '3',
-    		'wisdom' => '4'
     	];
+    	$character['strength'] = rand(1, 20);
+		$character['dexterity'] = rand(1, 20);
+		$character['intelligence'] = rand(1, 20);
+		$character['constitution'] = rand(1, 20);
+		$character['charisma'] = rand(1, 20);
+		$character['wisdom'] = rand(1, 20);
+		# Generate a random name if one was not provided and the checkbox is set
+		if (isset($_GET['generatename']) && ($character['name'] == '')) {
+			$generator = \Nubs\RandomNameGenerator\All::create();
+			$character['name'] = $generator->getName();
+		}
     	return view('sheet')->with(['character' => $character]);
     }
 }

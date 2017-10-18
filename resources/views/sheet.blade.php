@@ -31,32 +31,33 @@
 			{{ $character['alignment'] }}
 		</p>
 	</div>
-	<div class="stats">
+	
 		<h3> Stats </h3>
 		<hr>
+	<div class="stats">
 		<h3>
 			Strength: 
-			{{ $character['strength'] }}
+			<span class="attribute-num">{{ $character['strength'] }}</span>
 		</h3>
 		<h3>
 			Dexterity: 
-			{{ $character['dexterity'] }}
+			<span class="attribute-num">{{ $character['dexterity'] }}</span>
 		</h3>
 		<h3>
 			Constitution: 
-			{{ $character['constitution'] }}
+			<span class="attribute-num">{{ $character['constitution'] }}</span>
 		</h3>
 		<h3>
 			Intelligence: 
-			{{ $character['intelligence'] }}
+			<span class="attribute-num">{{ $character['intelligence'] }}</span>
 		</h3>
 		<h3>
 			Wisdom: 
-			{{ $character['wisdom'] }}
+			<span class="attribute-num">{{ $character['wisdom'] }}</span>
 		</h3>
 		<h3>
 			Charisma: 
-			{{ $character['charisma'] }}
+			<span class="attribute-num">{{ $character['charisma'] }}</span>
 		</h3>
 	</div>
 	<a href="{{ route('index') }}">Start Over</a>
