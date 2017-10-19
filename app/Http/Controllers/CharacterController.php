@@ -19,9 +19,13 @@ class CharacterController extends Controller
     		'name' => $_GET['name'],
     		'gender' => $_GET['gender'],
     		'race' => $_GET['race'],
-    		'class' => $_GET['class'],
-    		'alignment' => $_GET['lawchaos'].' '.$_GET['goodevil'],
+    		'class' => $_GET['class']
     	];
+    	if ($_GET['lawchaos'] == 'neutral' && $_GET['goodevil'] == 'neutral') {
+    		$character['alignment'] = 'neutral';
+    	} else {
+    		$character['alignment'] = $_GET['lawchaos'].' '.$_GET['goodevil'];
+    	}
     	$character['strength'] = rand(1, 20);
 		$character['dexterity'] = rand(1, 20);
 		$character['intelligence'] = rand(1, 20);
@@ -30,7 +34,7 @@ class CharacterController extends Controller
 		$character['wisdom'] = rand(1, 20);
 		# Generate a random name if one was not provided and the checkbox is set
 		if (isset($_GET['generatename']) && ($character['name'] == '')) {
-			$generator = \Nubs\RandomNameGenerator\All::create();
+			$generator = new \Nubs\RandomNameGenerator\Alliteration();
 			$character['name'] = $generator->getName();
 		}
     	return view('sheet')->with(['character' => $character]);
