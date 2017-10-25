@@ -16,19 +16,19 @@
 	</div>
 	<div class="character">
 		<h1 id="charName">
-			{{ $character['name'] }} 
+			{{ $character->name }} 
 		</h1>
 		<p>
-			{{ $character['race'] }}
+			{{ $character->race }}
 		</p>
 		<p>
-			{{ $character['gender'] }}
+			{{ $character->gender }}
 		</p>
 		<p>
-			{{ $character['class'] }}
+			{{ $character->class }}
 		</p>
 		<p>
-			{{ $character['alignment'] }}
+			{{ $character->alignment }}
 		</p>
 	</div>
 	
@@ -37,27 +37,27 @@
 	<div class="stats">
 		<h3>
 			<span class="attribute-name">Strength:</span>
-			<span class="attribute-num">{{ $character['strength'] }}</span>
+			<span class="attribute-num">{{ $character->stats['strength'] }}</span>
 		</h3>
 		<h3>
 			<span class="attribute-name">Dexterity:</span>
-			<span class="attribute-num">{{ $character['dexterity'] }}</span>
+			<span class="attribute-num">{{ $character->stats['dexterity'] }}</span>
 		</h3>
 		<h3>
 			<span class="attribute-name">Constitution:</span>
-			<span class="attribute-num">{{ $character['constitution'] }}</span>
+			<span class="attribute-num">{{ $character->stats['constitution'] }}</span>
 		</h3>
 		<h3>
 			<span class="attribute-name">Intelligence:</span>
-			<span class="attribute-num">{{ $character['intelligence'] }}</span>
+			<span class="attribute-num">{{ $character->stats['intelligence'] }}</span>
 		</h3>
 		<h3>
 			<span class="attribute-name">Wisdom:</span>
-			<span class="attribute-num">{{ $character['wisdom'] }}</span>
+			<span class="attribute-num">{{ $character->stats['wisdom'] }}</span>
 		</h3>
 		<h3>
 			<span class="attribute-name">Charisma:</span>
-			<span class="attribute-num">{{ $character['charisma'] }}</span>
+			<span class="attribute-num">{{ $character->stats['charisma'] }}</span>
 		</h3>
 	</div>
 	<a href="{{ route('index') }}">Start Over</a>
