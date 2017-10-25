@@ -13,12 +13,26 @@
 			<div class="form-row">
 				<label for="name">Name</label>
 				<input type="text" name="name" id="name" value="{{ old('name') }}">
+				@if($errors->get('name'))
+				    <ul>
+				        @foreach($errors->get('name') as $error)
+				            <li>{{ $error }}</li>
+				        @endforeach
+				    </ul>
+				@endif
 				<div class='radio-group'>
 				    <label class='radio-label'>
 				        <input type="checkbox" name="generatename" id="generatename" @if (old('generatename')) CHECKED @endif>
 				        <span class='inner-label sublabel'>Generate a random name</span>
 				    </label>
-				</div>				
+				</div>
+				@if($errors->get('generatename'))
+				    <ul>
+				        @foreach($errors->get('generatename') as $error)
+				            <li>{{ $error }}</li>
+				        @endforeach
+				    </ul>
+				@endif				
 			</div>
 			<div class='radio-group'>
 			    <label class='radio-label'>
@@ -66,6 +80,13 @@
 					</option>
 				</select>
 			</div>
+			@if($errors->get('class'))
+			    <ul>
+			        @foreach($errors->get('class') as $error)
+			            <li>{{ $error }}</li>
+			        @endforeach
+			    </ul>
+			@endif
 			<div class="form-row">
 				<label for="race">Race</label>
 				<select id="race" name="race">
@@ -81,6 +102,13 @@
 					</option>
 				</select>
 			</div>
+			@if($errors->get('race'))
+			    <ul>
+			        @foreach($errors->get('race') as $error)
+			            <li>{{ $error }}</li>
+			        @endforeach
+			    </ul>
+			@endif
 			<h3 class="alignment">Alignment</h3>
 			<div class="alignment-radios">
 				<div class="radio-group">
@@ -97,6 +125,13 @@
 				        <span class="inner-label">Chaotic</span>
 				    </label>
 				</div>
+				@if($errors->get('lawchaos'))
+				    <ul>
+				        @foreach($errors->get('lawchaos') as $error)
+				            <li>{{ $error }}</li>
+				        @endforeach
+				    </ul>
+				@endif
 				<div class="radio-group">
 				    <label class="radio-label">
 				        <input name="goodevil" type="radio" id="good" value="good" @if (old('goodevil') == 'good') CHECKED @endif>
@@ -111,6 +146,13 @@
 				        <span class="inner-label">Evil</span>
 				    </label>
 				</div>
+				@if($errors->get('goodevil'))
+				    <ul>
+				        @foreach($errors->get('goodevil') as $error)
+				            <li>{{ $error }}</li>
+				        @endforeach
+				    </ul>
+				@endif
 			</div>
 			<div class="form-row submit">
 				<input type="submit" value="Create Character" class="submit">
