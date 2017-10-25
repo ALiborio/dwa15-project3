@@ -13,11 +13,12 @@
 			<div class="form-row">
 				<label for="name">Name</label>
 				<input type="text" name="name" id="name">
-				<div>
-					<input type="checkbox" name="generatename" id="generatename" class="clear">
-					<label for="generatename" class="sublabel">Generate a random name</label>
-				</div>
-				
+				<div class='radio-group'>
+				    <label class='radio-label'>
+				        <input type="checkbox" name="generatename" id="generatename">
+				        <span class='inner-label sublabel'>Generate a random name</span>
+				    </label>
+				</div>				
 			</div>
 			<div class='radio-group'>
 			    <label class='radio-label'>

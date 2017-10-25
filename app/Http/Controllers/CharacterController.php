@@ -11,20 +11,27 @@ class CharacterController extends Controller
     	return view('form');
     }
 
-    public function generateCharacter()
+    public function generateCharacter(Request $request)
     {
-    	# for now, just set up the basic character from $_GET
-    	# TODO: Add form validation and stat generation based on race and class
+    	# first validate
+    	$this->validate($request, [
+	        'name' => 'required',
+	        'class' => 'required',
+	        'race' => 'required',
+	        'lawchaos' => 'required',
+	        'goodevil' => 'required'
+	    ]);
+    	# validation passed, generate character array
     	$character = [
-    		'name' => $_GET['name'],
-    		'gender' => $_GET['gender'],
-    		'race' => $_GET['race'],
-    		'class' => $_GET['class']
+    		'name' => $request->input('name'),
+    		'gender' => $request->input('gender'),
+    		'race' => $request->input('race'),
+    		'class' => $request->input('class')
     	];
-    	if ($_GET['lawchaos'] == 'neutral' && $_GET['goodevil'] == 'neutral') {
+    	if ($request->input('lawchaos') == 'neutral' && $request->input('goodevil') == 'neutral') {
     		$character['alignment'] = 'neutral';
     	} else {
-    		$character['alignment'] = $_GET['lawchaos'].' '.$_GET['goodevil'];
+    		$character['alignment'] = $request->input('lawchaos').' '.$request->input('goodevil');
     	}
     	$character['strength'] = rand(1, 20);
 		$character['dexterity'] = rand(1, 20);
@@ -33,7 +40,7 @@ class CharacterController extends Controller
 		$character['charisma'] = rand(1, 20);
 		$character['wisdom'] = rand(1, 20);
 		# Generate a random name if one was not provided and the checkbox is set
-		if (isset($_GET['generatename']) && ($character['name'] == '')) {
+		if ($request->has('generatename') && ($character['name'] == '')) {
 			$generator = new \Nubs\RandomNameGenerator\Alliteration();
 			$character['name'] = $generator->getName();
 		}
