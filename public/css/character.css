@@ -15,8 +15,17 @@
 	margin: auto;
 }
 
+.attribute-name {
+	margin-right: 5px;
+	width: 80%
+	margin-left: auto;
+	float: left;
+}
+
 .attribute-num {
 	margin-left: 10px;
+	width: 20%;
+	margin-right: 20px;
 }
 
 img {

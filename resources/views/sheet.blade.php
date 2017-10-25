@@ -36,27 +36,27 @@
 		<hr>
 	<div class="stats">
 		<h3>
-			Strength: 
+			<span class="attribute-name">Strength:</span>
 			<span class="attribute-num">{{ $character['strength'] }}</span>
 		</h3>
 		<h3>
-			Dexterity: 
+			<span class="attribute-name">Dexterity:</span>
 			<span class="attribute-num">{{ $character['dexterity'] }}</span>
 		</h3>
 		<h3>
-			Constitution: 
+			<span class="attribute-name">Constitution:</span>
 			<span class="attribute-num">{{ $character['constitution'] }}</span>
 		</h3>
 		<h3>
-			Intelligence: 
+			<span class="attribute-name">Intelligence:</span>
 			<span class="attribute-num">{{ $character['intelligence'] }}</span>
 		</h3>
 		<h3>
-			Wisdom: 
+			<span class="attribute-name">Wisdom:</span>
 			<span class="attribute-num">{{ $character['wisdom'] }}</span>
 		</h3>
 		<h3>
-			Charisma: 
+			<span class="attribute-name">Charisma:</span>
 			<span class="attribute-num">{{ $character['charisma'] }}</span>
 		</h3>
 	</div>

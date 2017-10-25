@@ -15,7 +15,8 @@ class CharacterController extends Controller
     {
     	# first validate
     	$this->validate($request, [
-	        'name' => 'required',
+	        'name' => 'required_without:generatename',
+	        'generatename' => 'required_without:name',
 	        'class' => 'required',
 	        'race' => 'required',
 	        'lawchaos' => 'required',

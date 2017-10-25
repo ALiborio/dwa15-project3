@@ -12,21 +12,21 @@
 		<form action="/character">
 			<div class="form-row">
 				<label for="name">Name</label>
-				<input type="text" name="name" id="name">
+				<input type="text" name="name" id="name" value="{{ old('name') }}">
 				<div class='radio-group'>
 				    <label class='radio-label'>
-				        <input type="checkbox" name="generatename" id="generatename">
+				        <input type="checkbox" name="generatename" id="generatename" @if (old('generatename')) CHECKED @endif>
 				        <span class='inner-label sublabel'>Generate a random name</span>
 				    </label>
 				</div>				
 			</div>
 			<div class='radio-group'>
 			    <label class='radio-label'>
-			        <input name='gender' type='radio' id='male' value='male' checked='checked'>
+			        <input name='gender' type='radio' id='male' value='male' @if (old('gender') == 'male') CHECKED @endif>
 			        <span class='inner-label'>Male</span>
 			    </label>
 			    <label class='radio-label'>
-			        <input name='gender' type='radio' id='female' value='female'>
+			        <input name='gender' type='radio' id='female' value='female' @if (old('gender') == 'female') CHECKED @endif>
 			        <span class='inner-label'>Female</span>
 			    </label>
 			</div>
@@ -34,54 +34,80 @@
 				<label for="class">Class</label>
 				<select id="class" name="class">
 					<option value="">-- pick a class --</option>
-					<option value="barbarian">Barbarian</option>
-					<option value="bard">Bard</option>
-					<option value="druid">Druid</option>
-					<option value="mage">Mage</option>
-					<option value="necromancer">Necromancer</option>
-					<option value="rogue">Rogue</option>
-					<option value="paladin">Paladin</option>
-					<option value="priest">Priest</option>
-					<option value="ranger">Ranger</option>
-					<option value="warrior">Warrior</option>
+					<option value="barbarian" @if (old('class') == 'barbarian') selected @endif>
+						Barbarian
+					</option>
+					<option value="bard" @if (old('class') == 'bard') selected @endif>
+						Bard
+					</option>
+					<option value="druid" @if (old('class') == 'druid') selected @endif>
+						Druid
+					</option>
+					<option value="mage" @if (old('class') == 'mage') selected @endif>
+						Mage
+					</option>
+					<option value="necromancer" @if (old('class') == 'necromancer') selected @endif>
+						Necromancer
+					</option>
+					<option value="rogue" @if (old('class') == 'rogue') selected @endif>
+						Rogue
+					</option>
+					<option value="paladin"@if (old('class') == 'paladin') selected @endif>
+						Paladin
+					</option>
+					<option value="priest" @if (old('class') == 'priest') selected @endif>
+						Priest
+					</option>
+					<option value="ranger" @if (old('class') == 'ranger') selected @endif>
+						Ranger
+					</option>
+					<option value="warrior" @if (old('class') == 'warrior') selected @endif>
+						Warrior
+					</option>
 				</select>
 			</div>
 			<div class="form-row">
 				<label for="race">Race</label>
 				<select id="race" name="race">
 					<option value="">-- pick a race --</option>
-					<option value="human">Human</option>
-					<option value="elf">Elf</option>
-					<option value="dwarf">Dwarf</option>
+					<option value="human" @if (old('race') == 'human') selected @endif>
+						Human
+					</option>
+					<option value="elf" @if (old('race') == 'elf') selected @endif>
+						Elf
+					</option>
+					<option value="dwarf" @if (old('race') == 'dwarf') selected @endif>
+						Dwarf
+					</option>
 				</select>
 			</div>
 			<h3 class="alignment">Alignment</h3>
 			<div class="alignment-radios">
 				<div class="radio-group">
 				    <label class="radio-label">
-				        <input name="lawchaos" type="radio" id="lawful" value="lawful">
+				        <input name="lawchaos" type="radio" id="lawful" value="lawful" @if (old('lawchaos') == 'lawful') CHECKED @endif>
 				        <span class="inner-label">Lawful</span>
 				    </label>
 				    <label class="radio-label">
-				        <input name="lawchaos" type="radio" id="neutral" value="neutral">
+				        <input name="lawchaos" type="radio" id="neutral" value="neutral" @if (old('lawchaos') == 'neutral') CHECKED @endif>
 				        <span class="inner-label">Neutral</span>
 				    </label>
 				    <label class="radio-label">
-				        <input name="lawchaos" type="radio" id="chaotic" value="chaotic">
+				        <input name="lawchaos" type="radio" id="chaotic" value="chaotic" @if (old('lawchaos') == 'chaotic') CHECKED @endif>
 				        <span class="inner-label">Chaotic</span>
 				    </label>
 				</div>
 				<div class="radio-group">
 				    <label class="radio-label">
-				        <input name="goodevil" type="radio" id="good" value="good">
+				        <input name="goodevil" type="radio" id="good" value="good" @if (old('goodevil') == 'good') CHECKED @endif>
 				        <span class="inner-label">Good&nbsp;&nbsp;&nbsp;</span>
 				    </label>
 				    <label class="radio-label">
-				        <input name="goodevil" type="radio" id="neutral" value="neutral">
+				        <input name="goodevil" type="radio" id="neutral" value="neutral" @if (old('goodevil') == 'neutral') CHECKED @endif>
 				        <span class="inner-label">Neutral</span>
 				    </label>
 				    <label class="radio-label">
-				        <input name="goodevil" type="radio" id="evil" value="evil">
+				        <input name="goodevil" type="radio" id="evil" value="evil" @if (old('goodevil') == 'evil') CHECKED @endif>
 				        <span class="inner-label">Evil</span>
 				    </label>
 				</div>
