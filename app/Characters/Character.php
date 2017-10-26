@@ -20,6 +20,12 @@ class Character
 		'charisma' => 0
 	];
 
+	/**
+     * Constructor method - sets up the basic character from the Request data
+     * If necessary, will also generate the character's name.
+     *
+     * @param  Request $request
+     */
 	public function __construct(Request $request)
 	{
 		$this->name = $request->input('name');
@@ -38,14 +44,85 @@ class Character
 		}
 	}
 
+	/**
+     * Actually generate the stats based on race and class
+     */
 	public function generateStats()
 	{
-		$this->stats['strength'] += rand(1, 20);
-		$this->stats['dexterity'] += rand(1, 20);
-		$this->stats['intelligence'] += rand(1, 20);
-		$this->stats['constitution'] += rand(1, 20);
-		$this->stats['charisma'] += rand(1, 20);
-		$this->stats['wisdom'] += rand(1, 20);
+		$rolls = $this->getRandomNumArray(6);
+		$statOrder = $this->getStatOrder();
+		$this->setupRaceBonuses();
+		foreach ($statOrder as $key => $stat) {
+			$this->stats[$stat] += $rolls[$key];
+		}
+	}
+
+	/**
+     * Get the array of random number rolls 
+     * Simulates a 20-sided die
+     *
+     * @param  int $num
+     * @return array of rolls sorted from highest to lowest
+     */
+	private function getRandomNumArray(int $num)
+	{
+		for ($i = 0; $i < $num; $i++) {
+		    $array[$i] = rand(1, 20);
+		}
+		rsort($array);
+		return $array;
+	}
+
+	/**
+     * Get the order to assign stats, from highest roll to lowest roll based on the character
+     * class chosen.
+     *
+     * @return array of stats keys in order to assign rolls to
+     */
+	private function getStatOrder()
+	{
+		if ($this->class == 'barbarian') {
+			$order = ['strength','dexterity','constitution','intelligence','wisdom','charisma'];
+		} elseif ($this->class == 'bard') {
+			$order = ['charisma','dexterity','wisdom','intelligence','constitution','strength'];
+		} elseif ($this->class == 'druid') {
+			$order = ['wisdom','dexterity','intelligence','constitution','strength','charisma'];
+		} elseif ($this->class == 'mage') {
+			$order = ['intelligence','wisdom','constitution','charisma','dexterity','strength'];
+		} elseif ($this->class == 'necromancer') {
+			$order = ['wisdom','intelligence','constitution','strength','dexterity','charisma'];
+		} elseif ($this->class == 'rogue') {
+			$order = ['dexterity','charisma','strength','wisdom','intelligence','constitution'];
+		} elseif ($this->class == 'paladin') {
+			$order = ['constitution','wisdom','strength','dexterity','charisma','intelligence'];
+		} elseif ($this->class == 'priest') {
+			$order = ['wisdom','charisma','constitution','intelligence','dexterity','strength'];
+		} elseif ($this->class == 'ranger') {
+			$order = ['dexterity','constitution','strength','wisdom','charisma','intelligence'];
+		} elseif ($this->class == 'warrior') {
+			$order = ['strength','constitution','dexterity','charisma','wisdom','intelligence'];
+		} else {
+			# fall through in case this method and the character classes fall out of sync
+			$order = ['strength','dexterity','constitution','intelligence','wisdom','charisma'];
+		}
+		return $order;
+	}
+
+	/**
+     * Adds bonus stat points to select fields based on character race
+     */
+	private function setupRaceBonuses()
+	{
+		if ($this->race == 'human') {
+			$this->stats['charisma'] += 1;
+			$this->stats['intelligence'] += 1;
+		} elseif ($this->race == 'elf') {
+			$this->stats['dexterity'] += 1;
+			$this->stats['wisdom'] += 1;
+		} elseif ($this->race == 'dwarf') {
+			$this->stats['strength'] += 1;
+			$this->stats['constitution'] += 1;
+		}
 	}
 
 }
