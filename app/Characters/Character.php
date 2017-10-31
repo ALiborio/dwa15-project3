@@ -33,7 +33,7 @@ class Character
 		$this->race = $request->input('race');
 		$this->class = $request->input('class');
 		if ($request->input('lawchaos') == 'neutral' && $request->input('goodevil') == 'neutral') {
-    		$this->alignment = 'neutral';
+    		$this->alignment = 'true neutral';
     	} else {
     		$this->alignment = $request->input('lawchaos').' '.$request->input('goodevil');
     	}
@@ -43,6 +43,22 @@ class Character
 			$this->name = $generator->getName();
 		}
 	}
+
+    /**
+     * Get the image path for the given character class
+     *
+     * @return array of stats keys in order to assign rolls to
+     */    
+    public function getImageUrl($value='')
+    {
+        # "/images/human/male/ranger.png"
+        $image = '/images/'.$this->race.'/'.$this->gender.'/'.$this->class.'.png';
+        if (\File::exists(public_path().$image)) {
+            return $image;
+        } else {
+            return '/images/defaultChar.png';
+        }
+    }
 
 	/**
      * Actually generate the stats based on race and class
@@ -64,16 +80,16 @@ class Character
      * @param  int $num
      * @return array of rolls sorted from highest to lowest
      */
-	private function getRandomNumArray(int $num)
-	{
-		for ($i = 0; $i < $num; $i++) {
-		    $array[$i] = rand(1, 20);
-		}
-		rsort($array);
-		return $array;
-	}
+    private function getRandomNumArray(int $num)
+    {
+        for ($i = 0; $i < $num; $i++) {
+            $array[$i] = rand(1, 20);
+        }
+        rsort($array);
+        return $array;
+    }
 
-	/**
+    /**
      * Get the order to assign stats, from highest roll to lowest roll based on the character
      * class chosen.
      *

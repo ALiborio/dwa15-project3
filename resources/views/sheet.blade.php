@@ -12,7 +12,7 @@
 @section('content')
 <div class="container">
 	<div class="portrait">
-		<img src="/images/human/male/ranger.png" width="225">
+		<img src="{{ $character->getImageUrl() }}" width="225" alt="{{ $character->race.' '.$character->gender.' '.$character->class }}" id="characterImg">
 	</div>
 	<div class="character">
 		<h1 id="charName">
@@ -61,6 +61,6 @@
 		</h3>
 	</div>
 	<a href="{{ route('index') }}">Start Over</a>
-	<a href="{{ url()->full() }}">Reroll Character</a>
+    <a href="{{ url()->full() }}">Regenerate</a>
 </div>
 @endsection

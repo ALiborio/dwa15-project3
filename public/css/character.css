@@ -9,6 +9,11 @@
 	height: 250px;
 }
 
+#characterImg {
+    width: 250px;
+    height: 250px;
+}
+
 .stats {
 	text-align: right;
 	width: 50%;

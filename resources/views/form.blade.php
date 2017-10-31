@@ -117,7 +117,7 @@
 				        <span class="inner-label">Lawful</span>
 				    </label>
 				    <label class="radio-label">
-				        <input name="lawchaos" type="radio" id="neutral" value="neutral" @if (old('lawchaos') == 'neutral') CHECKED @endif>
+				        <input name="lawchaos" type="radio" id="lcneutral" value="neutral" @if (old('lawchaos') == 'neutral') CHECKED @endif>
 				        <span class="inner-label">Neutral</span>
 				    </label>
 				    <label class="radio-label">
@@ -138,7 +138,7 @@
 				        <span class="inner-label">Good&nbsp;&nbsp;&nbsp;</span>
 				    </label>
 				    <label class="radio-label">
-				        <input name="goodevil" type="radio" id="neutral" value="neutral" @if (old('goodevil') == 'neutral') CHECKED @endif>
+				        <input name="goodevil" type="radio" id="geneutral" value="neutral" @if (old('goodevil') == 'neutral') CHECKED @endif>
 				        <span class="inner-label">Neutral</span>
 				    </label>
 				    <label class="radio-label">
@@ -159,4 +159,5 @@
 			</div>
 		</form>
 	</div>
+
 @endsection
