@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>
+    <title>
         @yield('title', 'Character Generator')
     </title>
 
-	<meta charset='utf-8'>
+    <meta charset='utf-8'>
     <link href="/css/main.css" type='text/css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative" rel="stylesheet">
 
@@ -14,18 +14,18 @@
 </head>
 <body>
 
-	<header>
-	</header>
+    <header>
+    </header>
 
-	<section>
-		@yield('content')
-	</section>
+    <section>
+        @yield('content')
+    </section>
 
-	<footer>
-		&copy; {{ date('Y') }}
-	</footer>
+    <footer>
+        &copy; {{ date('Y') }}
+    </footer>
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
     @stack('body')
 
