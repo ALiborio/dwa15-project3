@@ -19,6 +19,18 @@ class Character
         'wisdom' => 0,
         'charisma' => 0
     ];
+    public static $classList = [
+        'barbarian',
+        'bard',
+        'druid',
+        'mage',
+        'necromancer',
+        'paladin',
+        'priest',
+        'ranger',
+        'rogue',
+        'warrior'
+    ];
 
     /**
      * Constructor method - sets up the basic character from the Request data

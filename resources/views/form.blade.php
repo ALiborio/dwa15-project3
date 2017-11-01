@@ -49,36 +49,11 @@
             <label for="class">Class</label>
             <select id="class" name="class">
                 <option value="">-- pick a class --</option>
-                <option value="barbarian" @if (old('class') == 'barbarian') selected @endif>
-                    Barbarian
-                </option>
-                <option value="bard" @if (old('class') == 'bard') selected @endif>
-                    Bard
-                </option>
-                <option value="druid" @if (old('class') == 'druid') selected @endif>
-                    Druid
-                </option>
-                <option value="mage" @if (old('class') == 'mage') selected @endif>
-                    Mage
-                </option>
-                <option value="necromancer" @if (old('class') == 'necromancer') selected @endif>
-                    Necromancer
-                </option>
-                <option value="rogue" @if (old('class') == 'rogue') selected @endif>
-                    Rogue
-                </option>
-                <option value="paladin"@if (old('class') == 'paladin') selected @endif>
-                    Paladin
-                </option>
-                <option value="priest" @if (old('class') == 'priest') selected @endif>
-                    Priest
-                </option>
-                <option value="ranger" @if (old('class') == 'ranger') selected @endif>
-                    Ranger
-                </option>
-                <option value="warrior" @if (old('class') == 'warrior') selected @endif>
-                    Warrior
-                </option>
+                @foreach(\App\Characters\Character::$classList as $class)
+                    <option value="{{ $class }}" @if (old('class') == $class) selected @endif>
+                        {{ ucfirst($class) }}
+                    </option>
+                @endforeach
             </select>
         </div>
         @if($errors->get('class'))
