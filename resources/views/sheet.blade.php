@@ -35,31 +35,15 @@ Character Sheet
     <h3> Stats </h3>
     <hr>
     <div class="stats">
-        <h3>
-            <span class="attribute-name">Strength:</span>
-            <span class="attribute-num">{{ $character->stats['strength'] }}</span>
-        </h3>
-        <h3>
-            <span class="attribute-name">Dexterity:</span>
-            <span class="attribute-num">{{ $character->stats['dexterity'] }}</span>
-        </h3>
-        <h3>
-            <span class="attribute-name">Constitution:</span>
-            <span class="attribute-num">{{ $character->stats['constitution'] }}</span>
-        </h3>
-        <h3>
-            <span class="attribute-name">Intelligence:</span>
-            <span class="attribute-num">{{ $character->stats['intelligence'] }}</span>
-        </h3>
-        <h3>
-            <span class="attribute-name">Wisdom:</span>
-            <span class="attribute-num">{{ $character->stats['wisdom'] }}</span>
-        </h3>
-        <h3>
-            <span class="attribute-name">Charisma:</span>
-            <span class="attribute-num">{{ $character->stats['charisma'] }}</span>
-        </h3>
+        @foreach ($character->stats as $stat => $statNum)
+            <h3>
+                <span class="attribute-name">{{ ucfirst($stat) }}</span>
+                <span class="attribute-num">{{ $statNum }}</span>
+            </h3>
+        @endforeach
     </div>
+    <hr>
+    
     <a href="{{ route('index') }}">Start Over</a>
     <a href="{{ url()->full() }}">Regenerate</a>
 </div>
