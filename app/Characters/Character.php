@@ -111,48 +111,126 @@ class Character
     {
         switch ($this->class) {
             case 'barbarian':
-                $order = ['strength','dexterity','constitution','intelligence','wisdom','charisma'];
+                $order = [
+                    'strength',
+                    'dexterity',
+                    'constitution',
+                    'intelligence',
+                    'wisdom',
+                    'charisma'
+                ];
                 break;
 
             case 'bard':
-                $order = ['charisma','dexterity','wisdom','intelligence','constitution','strength'];
+                $order = [
+                    'charisma',
+                    'dexterity',
+                    'wisdom',
+                    'intelligence',
+                    'constitution',
+                    'strength'
+                ];
                 break;
 
             case 'druid':
-                $order = ['wisdom','dexterity','intelligence','constitution','strength','charisma'];
+                $order = [
+                    'wisdom',
+                    'dexterity',
+                    'intelligence',
+                    'constitution',
+                    'strength',
+                    'charisma'
+                ];
                 break;
 
             case 'mage':
-                $order = ['intelligence','wisdom','constitution','charisma','dexterity','strength'];
+                $order = [
+                    'intelligence',
+                    'wisdom',
+                    'constitution',
+                    'charisma',
+                    'dexterity',
+                    'strength'
+                ];
                 break;
 
             case 'necromancer':
-                $order = ['wisdom','intelligence','constitution','strength','dexterity','charisma'];
+                $order = [
+                    'wisdom',
+                    'intelligence',
+                    'constitution',
+                    'strength',
+                    'dexterity',
+                    'charisma'
+                ];
                 break;
                 
             case 'rogue':
-                $order = ['dexterity','charisma','strength','wisdom','intelligence','constitution'];
+                $order = [
+                    'dexterity',
+                    'charisma',
+                    'strength',
+                    'wisdom',
+                    'intelligence',
+                    'constitution'
+                ];
                 break;
                 
             case 'paladin':
-                $order = ['constitution','wisdom','strength','dexterity','charisma','intelligence'];
+                $order = [
+                    'constitution',
+                    'wisdom',
+                    'strength',
+                    'dexterity',
+                    'charisma',
+                    'intelligence'
+                ];
                 break;
                 
             case 'priest':
-                $order = ['wisdom','charisma','constitution','intelligence','dexterity','strength'];
+                $order = [
+                    'wisdom',
+                    'charisma',
+                    'constitution',
+                    'intelligence',
+                    'dexterity',
+                    'strength'
+                ];
                 break;
                 
             case 'ranger':
-                $order = ['dexterity','constitution','strength','wisdom','charisma','intelligence'];
+                $order = [
+                    'dexterity',
+                    'constitution',
+                    'strength',
+                    'wisdom',
+                    'charisma',
+                    'intelligence'
+                ];
                 break;
                 
             case 'warrior':
-                $order = ['strength','constitution','dexterity','charisma','wisdom','intelligence'];
+                $order = [
+                    'strength',
+                    'constitution',
+                    'dexterity',
+                    'charisma',
+                    'wisdom',
+                    'intelligence'
+                ];
                 break;
 
             default:
-                # in case this method and the character classes fall out of sync, returns order they are displayed
-                $order = ['strength','dexterity','constitution','intelligence','wisdom','charisma'];
+                # in case this method and the character classes fall out of sync,
+                # returns the order in which they are displayed
+                $order = [
+                    'strength',
+                    'dexterity',
+                    'constitution',
+                    'intelligence',
+                    'wisdom',
+                    'charisma'
+                ];
                 break;
         }
         
