@@ -14,11 +14,11 @@
             <label for="name">Name</label>
             <input type="text" name="name" id="name" value="{{ old('name') }}">
             @if($errors->get('name'))
-                <ul>
+                <div class="errors">
                     @foreach($errors->get('name') as $error)
-                        <li>{{ $error }}</li>
+                        <p>{{ $error }}</p>
                     @endforeach
-                </ul>
+                </div>
             @endif
                 
             <div class='radio-group'>
@@ -28,11 +28,11 @@
                 </label>
             </div>
             @if($errors->get('generatename'))
-            <ul>
+            <div class="errors">
                 @foreach($errors->get('generatename') as $error)
-                    <li>{{ $error }}</li>
+                    <p>{{ $error }}</p>
                 @endforeach
-            </ul>
+            </div>
             @endif
         </div>
         <div class='radio-group'>
@@ -57,11 +57,11 @@
             </select>
         </div>
         @if($errors->get('class'))
-            <ul>
+            <div class="errors">
                @foreach($errors->get('class') as $error)
-                   <li>{{ $error }}</li>
+                   <p>{{ $error }}</p>
                @endforeach
-            </ul>
+            </div>
         @endif
         <div class="form-row">
             <label for="race">Race</label>
@@ -79,11 +79,11 @@
             </select>
         </div>
         @if($errors->get('race'))
-            <ul>
+            <div class="errors">
                 @foreach($errors->get('race') as $error)
-                    <li>{{ $error }}</li>
+                    <p>{{ $error }}</p>
                 @endforeach
-            </ul>
+            </div>
         @endif
         <h3 class="alignment">Alignment</h3>
         <div class="alignment-radios">
@@ -102,11 +102,11 @@
                 </label>
             </div>
             @if($errors->get('lawchaos'))
-                <ul>
+                <div class="errors">
                     @foreach($errors->get('lawchaos') as $error)
-                        <li>{{ $error }}</li>
+                        <p>{{ $error }}</p>
                     @endforeach
-                </ul>
+                </div>
             @endif
             <div class="radio-group">
                 <label class="radio-label">
@@ -123,11 +123,11 @@
                 </label>
             </div>
             @if($errors->get('goodevil'))
-                <ul>
+                <div class="errors">
                     @foreach($errors->get('goodevil') as $error)
-                        <li>{{ $error }}</li>
+                        <p>{{ $error }}</p>
                     @endforeach
-                </ul>
+                </div>
             @endif
         </div>
         <div class="form-row submit">

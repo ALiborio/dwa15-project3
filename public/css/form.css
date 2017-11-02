@@ -18,6 +18,13 @@
 
 }
 
+.errors {
+  font-size: 0.8em;
+  font-weight: bold;
+  color: #dd1010;
+  text-align: left;
+}
+
 .submit {
 	text-align: center;
 	font-family: 'Cinzel Decorative', cursive;
